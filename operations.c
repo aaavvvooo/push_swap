@@ -75,3 +75,10 @@ void    push(t_stack *from, t_stack *to, int size)
     free(massiv);
 }
 
+t_stack *sa(t_stack *a)
+{
+    swap(a);
+    printf("sa\n");
+    return (a);
+}
+

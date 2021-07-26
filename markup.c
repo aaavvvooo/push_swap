@@ -4,13 +4,24 @@ int     get_max_markup(t_stack *stack)
 {
     int i;
     int max;
+    int temp;
 
-    i = 0;
+    i = -1;
     max = 0;
-    while (stack[i].value == 0)
+    temp = 0;
+    while (stack[++i].value == 1)
     {
-        
+        if (stack[i].markup == 1)
+            ++temp;
+        else
+        {
+            if(temp > max)
+                max = temp;
+        }
     }
+    if(temp > max)
+        max = temp;
+    return (max);
 }
 
 int  get_markup_length(t_stack *stack, int i)
@@ -55,7 +66,6 @@ t_stack *markup(t_stack *stack)
     while (stack[i].value == 1)
     {
         t_max = get_markup_length(stack, i);
-        printf("t_max-> %d\n", t_max);
         if (t_max > max)
         {
             max = t_max;
@@ -63,7 +73,6 @@ t_stack *markup(t_stack *stack)
         }
         ++i;
     }
-    printf("%d---%d\n", head, max);
     stack = set_markup(stack, head, max);
     return (stack);
 }

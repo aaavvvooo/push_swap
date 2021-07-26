@@ -31,6 +31,8 @@ void		rotate(t_stack *stack);
 void		reverse_rotate(t_stack *stack);
 void		push(t_stack *from, t_stack *to, int size);
 
+t_stack		*sa(t_stack *a);
+
 t_stack		*ft_index(t_stack *stack);
 int			get_min(t_stack *stack);
 t_stack		*markup(t_stack *stack);
@@ -39,7 +41,7 @@ int			get_max_markup(t_stack *stack);
 t_stack		*set_markup(t_stack *stack, int head, int max);
 
 int			is_false_inside(t_stack *stack);
-int			fromAtoB(t_stack **a, t_stack **b, int size);
+int			fromAtoB(t_stack *a, t_stack **b, int size);
 int			sa_needed(t_stack *stack, int size);
 
 #endif

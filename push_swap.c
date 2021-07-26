@@ -15,7 +15,7 @@ int	main(int argc, char **argv)
 	a = markup(a);
 	printf("A\n");
 	print_stack (a, size);
-	fromAtoB(&a, &b, size);
+	fromAtoB(a, b, size);
 	//printf("A\n");
 	//print_stack (a, size);
 	//printf("B\n");

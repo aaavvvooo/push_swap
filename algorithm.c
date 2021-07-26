@@ -29,26 +29,28 @@ int		sa_needed(t_stack *stack, int size)
 		temp[i].index = stack[i].index;
 	}
 	swap(temp);
-	printf("markuping temp\n");
 	temp = markup(temp);
 	printf("temp\n");
 	print_stack(temp, size);
-	if(get_markup_size())
-	
-
-	free(temp);
-	return (1);
+	if(get_max_markup(temp) > get_max_markup(stack))
+	{
+		free(temp);
+		return (1);
+	}
+	free(temp);	
+	return (0);
 }
 
-int	fromAtoB(t_stack **a, t_stack **b, int size)
+int	fromAtoB(t_stack *a, t_stack **b, int size)
 {
-	printf("barlus\n");
-	//while (is_false_inside(*a))
+	//while (is_false_inside(a))
 	//{
-		if(sa_needed(*a, size))
+		if(sa_needed(a, size))
 		{
-			printf("Heyyyyy\n");
+			a = sa(a);
+			a = markup(a);
 		}
+		else if()
 	//}
 	return(1);
 }
