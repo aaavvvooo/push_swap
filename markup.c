@@ -46,11 +46,19 @@ t_stack *set_markup(t_stack *stack, int head, int max)
     int i = 0;
     int j;
     while (stack[i].index != head)
+    {
+        stack[i].markup = 0;
         ++i;
+    }
     j = i;
     while (j < i + max)
     {
         stack[j].markup = 1;
+        ++j;
+    }
+    while (stack[j].value == 1)
+    {
+        stack[j].markup = 0;
         ++j;
     }
     return (stack);

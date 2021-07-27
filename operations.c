@@ -9,6 +9,8 @@ static t_stack  *massivi_lconum(t_stack *stack, t_stack *massiv, int size)
     {
         massiv[j].number =  stack[j].number;
         massiv[j].value = 1;
+        massiv[j].index = stack[j].index;
+        massiv[j].markup = stack[j].markup;
     }
     massiv[j].value = 0;
     return (massiv);
@@ -23,8 +25,6 @@ void    swap(t_stack *stack)
     temp.index = stack[0].index;
     stack[0].index = stack[1].index;
     stack[1].index = temp.index;
-
-
 }
 
 void rotate(t_stack *stack)
@@ -34,9 +34,17 @@ void rotate(t_stack *stack)
 
     i = 0;
     temp.number = stack[0].number;
+    temp.index = stack[0].index;
+    temp.markup = stack[0].markup;
     while(stack[++i].value == 1)
+    {
         stack[i - 1].number = stack[i].number;
+        stack[i - 1].index = stack[i].index;
+        stack[i - 1].markup = stack[i].markup;
+    }
     stack[i - 1].number = temp.number;
+    stack[i - 1].index = temp.index;
+    stack[i - 1].markup = temp.markup;
 }
 
 void reverse_rotate(t_stack *stack)
@@ -52,6 +60,7 @@ void reverse_rotate(t_stack *stack)
         --i;
     }
     stack[i].number = temp.number;
+    stack = ft_index(stack);
 }
 
 void    push(t_stack *from, t_stack *to, int size)
@@ -82,3 +91,9 @@ t_stack *sa(t_stack *a)
     return (a);
 }
 
+t_stack *ra(t_stack *a)
+{
+    rotate(a);
+    printf("ra\n");
+    return (a);
+}

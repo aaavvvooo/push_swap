@@ -9,13 +9,17 @@ int	main(int argc, char **argv)
 	a = parser(argc, argv);
 	size = stack_size(a);
 	b = create_stack(b, size);
-	printf("A\n");
-	print_stack (a, size);
 	a = ft_index(a);
 	a = markup(a);
+	//printf("A\n");
+	//print_stack (a, size);
+	fromAtoB(a, b, size);
+	printf("----------in the end---------");
 	printf("A\n");
 	print_stack (a, size);
-	fromAtoB(a, b, size);
+	printf("B\n");
+	print_stack (b, size);
+
 	//printf("A\n");
 	//print_stack (a, size);
 	//printf("B\n");

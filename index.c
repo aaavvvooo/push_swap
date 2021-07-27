@@ -1,5 +1,15 @@
 #include "push_swap.h"
 
+void init_index(t_stack *stack)
+{
+    int i = 0;
+    while (stack[i].value == 1)
+    {
+        stack[i].index = -1;
+        ++i;
+    }
+}
+
 int get_min(t_stack *stack)
 {
     int i;
@@ -25,6 +35,7 @@ t_stack     *ft_index(t_stack *stack)
     int i;
 
     i = 0;
+    init_index(stack);
     while (i < stack_size(stack))
     {
         index = get_min(stack);
